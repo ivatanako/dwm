@@ -16,10 +16,12 @@ static const char back[]   = "#282a36";
 static const char fore[]   = "#f8f8f2"; 
 static const char border[] = "#bd94f9";
 
-static const char col0[]   = "#000000";
+static const char col0[]   = "#282828";
 static const char col1[]   = "#FF5555";
 static const char col2[]   = "#50FA7B";
-static const char col3[]   = "#F1FA8C";
+static const char col3[]   = "#F1FA8C"
+
+;
 static const char col4[]   = "#BD93F9";
 static const char col5[]   = "#FF79C6";
 static const char col6[]   = "#8BE9FD";
@@ -133,6 +135,7 @@ static Key keys[] = {
 		     { MODKEY,                       XK_Tab,    view,           {0} }, /*tag anterior*/
 		     { MODKEY,                       XK_0,      view,           {.ui = ~0 } }, /*ver todos los tags a la vez*/
 		     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, /*ventana enfocada en todos los tags*/
+		     { MODKEY|ShiftMask,             XK_o,      winview,        {0} }, // Ir al tag de la ventana enfocada
 		     { MODKEY|ControlMask,           XK_l,      shiftview,  { .i = +1 } }, /*Ver siguiente tag*/
 		     { MODKEY|ControlMask,           XK_h,      shiftview,  { .i = -1 } }, /*Ver tag anterior*/
 		     TAGKEYS(                        XK_1,                      0) /*Enfocar tag 1*/ 
@@ -147,11 +150,15 @@ static Key keys[] = {
 
 		     /*Layouts*/
 		     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /*tiled*/
+		     { MODKEY|Mod1Mask,              XK_f,      setlayout,      {.v = &layouts[1]} }, /*Spiral*/
+		     { MODKEY|Mod1Mask,              XK_g,      setlayout,      {.v = &layouts[2]} }, /*Grid*/
+		     { MODKEY|Mod1Mask,              XK_c,      setlayout,      {.v = &layouts[3]} }, /*center*/
 		     { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[5]} }, /*monocle*/
+		     { MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[6]} }, /*Deck*/
 		     { MODKEY,                       XK_s,      togglefloating, {0} }, /*float*/
 		     { MODKEY,			     XK_F11,    togglefullscr,  {0} }, /*Fullscreen*/
-		     { MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[6]} }, /*Deck*/
-		     { MODKEY|Mod1Mask,              XK_space,  cyclelayout,    {.i = +1 } }, /*Ciclar layouts*/
+		     { MODKEY|Mod1Mask,              XK_comma,  cyclelayout,    {.i = -1 } }, /*Ciclar layouts*/
+		     { MODKEY|Mod1Mask,              XK_period, cyclelayout,    {.i = +1 } }, /*Ciclar layouts*/
 
 		     /*Monitores*/
 		     { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, /*Enfocar siguiente monitor*/
