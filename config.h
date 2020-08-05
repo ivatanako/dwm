@@ -7,41 +7,47 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const int rmaster            = 0;        /* 1 = master at right*/
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 24;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = {"JetBrains Mono:Regular:size=9", "Material Design Icons:Regular:pixelsize=16:antialias:true"};
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#282a36";
-static const char col_gray2[]       = "#ff5555";
-static const char col_gray3[]       = "#f8f8f2";
-static const char col_gray4[]       = "#689d6a";
-static const char col_cyan[]        = "#4d4d4d";
-static const char col1[]            = "#ffffff";
-static const char col2[]            = "#ffffff";
-static const char col3[]            = "#ffffff";
-static const char col4[]            = "#ffffff";
-static const char col5[]            = "#ffffff";
-static const char col6[]            = "#ffffff";
-static const char col7[]            = "#ffffff";
-static const char col8[]            = "#ffffff";
-static const char col9[]            = "#ffffff";
-static const char col10[]           = "#ffffff";
-static const char col11[]           = "#ffffff";
-static const char col12[]           = "#ffffff";
+static const char col_gray1[]       = "#282a36"; /*background*/
+static const char col_gray2[]       = "#fb4934"; /*border*/
+static const char col_gray3[]       = "#fbf2c7"; /*foreground*/
+static const char col_gray4[]       = "#689d6a"; /*highlight*/
+static const char col_cyan[]        = "#1d2021"; /*dark alternative (color0)*/
+static const char col1[]            = "#cc241d";
+static const char col2[]            = "#98971a";
+static const char col3[]            = "#d79921";
+static const char col4[]            = "#458588";
+static const char col5[]            = "#b16286";
+static const char col6[]            = "#689d6a";
+static const char col7[]            = "#d3869b";
+static const char col8[]            = "#8ec07c";
+static const char col9[]            = "#a89984";
+static const char col10[]           = "#b8bb26";
+static const char col11[]           = "#fabd2f";
+static const char col12[]           = "#83a598";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm]  = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]   = { col_gray4, col_gray1,  col_cyan  },
-	[SchemeCol1]  = { col1,      col_gray1, col_gray2 },
-	[SchemeCol2]  = { col2,      col_gray1, col_gray2 },
-	[SchemeCol3]  = { col3,      col_gray1, col_gray2 },
-	[SchemeCol4]  = { col4,      col_gray1, col_gray2 },
-	[SchemeCol5]  = { col5,      col_gray1, col_gray2 },
-	[SchemeCol6]  = { col6,      col_gray1, col_gray2 },
-	[SchemeCol7]  = { col7,      col_gray1, col_gray2 },
-	[SchemeCol8]  = { col8,      col_gray1, col_gray2 },
-	[SchemeCol9]  = { col8,      col_gray1, col_gray2 },
-	[SchemeCol10] = { col10,     col_gray1, col_gray2 },
-	[SchemeCol11] = { col11,     col_gray1, col_gray2 },
-	[SchemeCol12] = { col12,     col_gray1, col_gray2 },
+	[SchemeNorm]     = { col_gray3, col_gray1, col_cyan  }, // \x0b
+	[SchemeSel]      = { col_gray4, col_gray1, col_gray2 }, // \x0c
+	[SchemeStatus]   = { col_gray3, col_gray1, "#000000" }, // \x0d  Statusbar right 
+	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000" }, // \x0e  Tagbar left selected 
+        [SchemeTagsNorm] = { col_gray3, col_gray1, "#000000" }, // \x0f  Tagbar left unselected 
+        [SchemeInfoSel]  = { col_gray3, col_gray1, "#000000" }, // \x10  infobar middle  selected 
+        [SchemeInfoNorm] = { col_gray3, col_gray1, "#000000" }, // \x11  infobar middle  unselected 
+	[SchemeCol1]     = { col1,      col1,      col_gray2 }, // \x12
+	[SchemeCol2]     = { col2,      col1,      col_gray2 }, // \x13
+	[SchemeCol3]     = { col3,      col1,      col_gray2 }, // \x14
+	[SchemeCol4]     = { col4,      col1,      col_gray2 }, // \x15
+	[SchemeCol5]     = { col5,      col1,      col_gray2 }, // \x16
+	[SchemeCol6]     = { col6,      col1,      col_gray2 }, // \x17
+	[SchemeCol7]     = { col7,      col1,      col_gray2 }, // \x18
+	[SchemeCol8]     = { col8,      col1,      col_gray2 }, // \x19
+	[SchemeCol9]     = { col8,      col1,      col_gray2 }, // \x1a
+	[SchemeCol10]    = { col10,     col1,      col_gray2 }, // \x1b
+	[SchemeCol11]    = { col11,     col1,      col_gray2 }, // \x1c
+	[SchemeCol12]    = { col12,     col1,      col_gray2 }, // \x1d
 };
 
 /* tagging */
