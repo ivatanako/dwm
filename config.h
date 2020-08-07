@@ -6,41 +6,41 @@ static const unsigned int gappx     = 6;
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int rmaster            = 0;        /* 1 = master at right*/
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
-static const int user_bh            = 26;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 24;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int tag_padding        = 4;        
 static const char *fonts[]          = {"JetBrains Mono:Regular:size=9", "Material Design Icons:Regular:pixelsize=16:antialias:true"};
 static const char dmenufont[]       = "monospace:size=10";
 
-static const char back[]   = "#282a36";
-static const char fore[]   = "#f8f8f2"; 
-static const char border[] = "#bd94f9";
+static const char back[]   = "#282828";
+static const char fore[]   = "#fbf2c7"; 
+static const char border[] = "#fbf2c7";
 
-static const char col0[]   = "#282828";
-static const char col1[]   = "#FF5555";
-static const char col2[]   = "#50FA7B";
-static const char col3[]   = "#F1FA8C"
-
-;
-static const char col4[]   = "#BD93F9";
-static const char col5[]   = "#FF79C6";
-static const char col6[]   = "#8BE9FD";
-static const char col7[]   = "#BFBFBF";
-static const char col8[]   = "#4D4D4D";
-static const char col9[]   = "#FF6E67";
-static const char col10[]  = "#5AF78E";
-static const char col11[]  = "#F4F99D";
-static const char col12[]  = "#CAA9FA";
-static const char col13[]  = "#FF92D0";
-static const char col14[]  = "#9AEDFE";
-static const char col15[]  = "#E6E6E6";
+static const char col0[]   = "#1d2021";
+static const char col1[]   = "#cc241d";
+static const char col2[]   = "#98971a";
+static const char col3[]   = "#d79921";
+static const char col4[]   = "#458588";
+static const char col5[]   = "#b16286";
+static const char col6[]   = "#689d6a";
+static const char col7[]   = "#a89984";
+static const char col8[]   = "#928374";
+static const char col9[]   = "#fb4934";
+static const char col10[]  = "#b8bb26";
+static const char col11[]  = "#fabd2f";
+static const char col12[]  = "#83a598";
+static const char col13[]  = "#d3869b";
+static const char col14[]  = "#8ec07c";
+static const char col15[]  = "#ebdbb2";
+static const char spotify[]= "#1FC167";
+ 
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm]     = { fore,      back,      col0   }, // \x0b
 	[SchemeSel]      = { fore,      back,      border }, // \x0c
 	[SchemeStatus]   = { fore,      back,      border }, // \x0d  Statusbar right 
-	[SchemeTagsSel]  = { col4,      back,      border }, // \x0e  Tagbar left selected 
+	[SchemeTagsSel]  = { col7,      back,      border }, // \x0e  Tagbar left selected 
         [SchemeTagsNorm] = { fore,      back,      border }, // \x0f  Tagbar left unselected 
         [SchemeInfoSel]  = { fore,      back,      border }, // \x10  infobar middle  selected 
         [SchemeInfoNorm] = { fore,      back,      border }, // \x11  infobar middle  unselected 
@@ -55,7 +55,7 @@ static const char *colors[][3]      = {
 	[SchemeCol9]     = { col8,      back,      col0   }, // \x1a
 	[SchemeCol10]    = { col10,     back,      col0   }, // \x1b
 	[SchemeCol11]    = { col11,     back,      col0   }, // \x1c
-	[SchemeCol12]    = { col12,     back,      col0   }, // \x1d
+	[SchemeCol12]    = { spotify,   back,      col0   }, // \x1d Spotify
 };
 
 /* tagging */
@@ -134,8 +134,10 @@ static Key keys[] = {
 		     /* Tags*/
 		     { MODKEY,                       XK_Tab,    view,           {0} }, /*tag anterior*/
 		     { MODKEY,                       XK_0,      view,           {.ui = ~0 } }, /*ver todos los tags a la vez*/
+		     { MODKEY,                       XK_0,      setlayout,      {.v = &layouts[2]} }, /*Grid*/
 		     { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, /*ventana enfocada en todos los tags*/
 		     { MODKEY|ShiftMask,             XK_o,      winview,        {0} }, // Ir al tag de la ventana enfocada
+		     { MODKEY|ShiftMask,             XK_o,      setlayout,      {.v = &layouts[0]} }, /*tiled*/
 		     { MODKEY|ControlMask,           XK_l,      shiftview,  { .i = +1 } }, /*Ver siguiente tag*/
 		     { MODKEY|ControlMask,           XK_h,      shiftview,  { .i = -1 } }, /*Ver tag anterior*/
 		     TAGKEYS(                        XK_1,                      0) /*Enfocar tag 1*/ 
@@ -174,8 +176,8 @@ static Key keys[] = {
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
-	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
-	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
+	{ ClkLtSymbol,          0,              Button1,        cyclelayout,      {.i = +1 } },
+	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[5]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
 	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
 	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
