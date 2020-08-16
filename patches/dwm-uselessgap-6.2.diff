@@ -35,7 +35,7 @@ index 4465af1..4545e05 100644
  #define TAGMASK                 ((1 << LENGTH(tags)) - 1)
  #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
  
-@@ -1276,12 +1276,36 @@ void
+@@ -1276,13 +1276,37 @@ void
  resizeclient(Client *c, int x, int y, int w, int h)
  {
  	XWindowChanges wc;
@@ -76,6 +76,6 @@ index 4465af1..4545e05 100644
  	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
  	configure(c);
  	XSync(dpy, False);
--- 
+ 
 2.22.0
 

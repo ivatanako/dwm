@@ -9,10 +9,9 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 24;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const int tag_padding        = 0;        
-static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
-static const int vertpadbar         = 10;        /* vertical padding for statusbar */
-
-static const char *fonts[]          = {"JetBrains Mono:Regular:size=9", "Material Design Icons:Regular:pixelsize=16:antialias:true"};
+static const int vertpad            = 4;       /* vertical padding of bar */
+static const int sidepad            = 8;       /* horizontal padding of bar */
+static const char *fonts[]          = {"Ubuntu:Regular:size=10", "Material Design Icons:Regular:pixelsize=16:antialias:true"};
 static const char dmenufont[]       = "monospace:size=10";
 
 static const char back[]   = "#282a36";
@@ -47,18 +46,18 @@ static const char *colors[][3]      = {
         [SchemeTagsNorm] = { fore,      back,      border }, // \x0f  Tagbar left unselected 
         [SchemeInfoSel]  = { fore,      back,      border }, // \x10  infobar middle  selected 
         [SchemeInfoNorm] = { fore,      back,      border }, // \x11  infobar middle  unselected 
-	[SchemeCol1]     = { col1,      back,      col0   }, // \x12
-	[SchemeCol2]     = { col2,      back,      col0   }, // \x13
-	[SchemeCol3]     = { col3,      back,      col0   }, // \x14
-	[SchemeCol4]     = { col4,      back,      col0   }, // \x15
-	[SchemeCol5]     = { col5,      back,      col0   }, // \x16
-	[SchemeCol6]     = { col6,      back,      col0   }, // \x17
-	[SchemeCol7]     = { col7,      back,      col0   }, // \x18
-	[SchemeCol8]     = { col8,      back,      col0   }, // \x19
-	[SchemeCol9]     = { col8,      back,      col0   }, // \x1a
-	[SchemeCol10]    = { col10,     back,      col0   }, // \x1b
-	[SchemeCol11]    = { col11,     back,      col0   }, // \x1c
-	[SchemeCol12]    = { spotify,   back,      col0   }, // \x1d Spotify
+	[SchemeCol1]     = { back,      col1,      col0   }, // \x12 
+	[SchemeCol2]     = { back,      col2,      col0   }, // \x13
+	[SchemeCol3]     = { back,      col3,      col0   }, // \x14 
+	[SchemeCol4]     = { back,      col4,      col0   }, // \x15
+	[SchemeCol5]     = { back,      col5,      col0   }, // \x16 
+	[SchemeCol6]     = { back,      col6,      col0   }, // \x17
+	[SchemeCol7]     = { back,      col7,      col0   }, // \x18
+	[SchemeCol8]     = { back,      col8,      col0   }, // \x19
+	[SchemeCol9]     = { back,      col9,      col0   }, // \x1a
+	[SchemeCol10]    = { back,      col10,      col0   }, // \x1b
+	[SchemeCol11]    = { back,      col11,      col0   }, // \x1c 
+	[SchemeCol12]    = { back,      spotify,   col0   }, // \x1d Spotify
 };
 
 /* tagging */
@@ -78,6 +77,7 @@ static const Rule rules[] = {
 	{ "qt5ct",         NULL,       NULL,       0,            1,           -1 },
 	{ "Gucharmap",     NULL,       NULL,       0,            1,           -1 },
 	{ "Sxiv",          NULL,       NULL,       0,            1,           -1 },
+	{ "Spotify",       NULL,       NULL,       5,            0,           -1 },
 };
 
 /* layout(s) */
@@ -91,7 +91,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "󰙀",      tile },    /* first entry is default */
  	{ "󰕴",      dwindle },
-	{ "󰹪",      grid },
+	{ "󰋁",      grid },
 	{ "󱒅",      centeredmaster },
 	{ "󰕬",      centeredfloatingmaster },
 	{ "[M]",      monocle },
