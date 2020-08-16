@@ -8,7 +8,7 @@ static const int rmaster            = 0;        /* 1 = master at right*/
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 24;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const int tag_padding        = 4;        
+static const int tag_padding        = 0;        
 static const char *fonts[]          = {"JetBrains Mono:Regular:size=9", "Material Design Icons:Regular:pixelsize=16:antialias:true"};
 static const char dmenufont[]       = "monospace:size=10";
 
@@ -40,7 +40,7 @@ static const char *colors[][3]      = {
 	[SchemeNorm]     = { fore,      back,      col0   }, // \x0b
 	[SchemeSel]      = { fore,      back,      border }, // \x0c
 	[SchemeStatus]   = { fore,      back,      border }, // \x0d  Statusbar right 
-	[SchemeTagsSel]  = { col7,      back,      border }, // \x0e  Tagbar left selected 
+	[SchemeTagsSel]  = { col15,      col6,      border }, // \x0e  Tagbar left selected 
         [SchemeTagsNorm] = { fore,      back,      border }, // \x0f  Tagbar left unselected 
         [SchemeInfoSel]  = { fore,      back,      border }, // \x10  infobar middle  selected 
         [SchemeInfoNorm] = { fore,      back,      border }, // \x11  infobar middle  unselected 
@@ -59,8 +59,8 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "󰧞", "󰧞", "󰧞", "󰧞", "󰧞", "󰧞"};
-static const char *alttags[] = { "󰪥", "󰪥", "󰪥", "󰪥", "󰪥", "󰪥" };
+static const char *tags[] = { "󰲌", "󰧮", "󰺷", "󰽴"};
+static const char *alttags[] = { "󰲋", "󰈙", "󰊗", "󰎇"};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -86,7 +86,7 @@ static const int resizehints = 0;    /* 1 means respect size hints in tiled resi
 #include "layouts.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "󰕲",      tile },    /* first entry is default */
+	{ "󰙀",      tile },    /* first entry is default */
  	{ "󰕴",      dwindle },
 	{ "󰹪",      grid },
 	{ "󱒅",      centeredmaster },
