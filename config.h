@@ -39,7 +39,7 @@ static const char spotify[]= "#1FC167";
 
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm]     = { fore,      back,      col0   }, // \x0b
+	[SchemeNorm]     = { fore,      back,      back   }, // \x0b
 	[SchemeSel]      = { fore,      back,      border }, // \x0c
 	[SchemeStatus]   = { fore,      back,      border }, // \x0d  Statusbar right 
 	[SchemeTagsSel]  = { col4,      back,      border }, // \x0e  Tagbar left selected 
