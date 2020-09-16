@@ -173,6 +173,10 @@ static Key keys[] = {
 
 		     /* dwm especifico*/
 		     { MODKEY,                       XK_b,      togglebar,      {0} }, /*Activar o desactivar panel*/
+                     { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
+                     { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
+                     { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+
 };
 
 /* button definitions */
