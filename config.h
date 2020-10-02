@@ -78,6 +78,7 @@ static const Rule rules[] = {
 	{ "Gucharmap",     NULL,       NULL,       0,            1,           -1 },
 	{ "Sxiv",          NULL,       NULL,       0,            1,           -1 },
 	{ "Spotify",       NULL,       NULL,       5,            0,           -1 },
+	{ "Toolkit",       NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
