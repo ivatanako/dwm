@@ -1,4 +1,4 @@
-* Dynamic Window Manager
+#+TITLE:DWM: Dynamic Window Manager
 
 This is my own build of DWM with some patches and configurations.
 

@@ -61,7 +61,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4"};
+static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
 //static const char *alttags[] = { "󰄯", "󰄯", "󰄯", "󰄯"};
 
 static const Rule rules[] = {
@@ -79,6 +79,7 @@ static const Rule rules[] = {
 	{ "Sxiv",          NULL,       NULL,       0,            1,           -1 },
 	{ "Spotify",       NULL,       NULL,       5,            0,           -1 },
 	{ "Toolkit",       NULL,       NULL,       0,            1,           -1 },
+	{ "kruler",        NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
