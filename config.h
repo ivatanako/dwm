@@ -46,18 +46,18 @@ static const char *colors[][3]      = {
         [SchemeTagsNorm] = { fore,      back,      border }, // \x0f  Tagbar left unselected 
         [SchemeInfoSel]  = { fore,      back,      border }, // \x10  infobar middle  selected 
         [SchemeInfoNorm] = { fore,      back,      border }, // \x11  infobar middle  unselected 
-	[SchemeCol1]     = { fore,      back,      col0   }, // \x12 
-	[SchemeCol2]     = { fore,      back,      col0   }, // \x13
-	[SchemeCol3]     = { fore,      back,      col0   }, // \x14 
-	[SchemeCol4]     = { fore,      back,      col0   }, // \x15
-	[SchemeCol5]     = { fore,      back,      col0   }, // \x16 
-	[SchemeCol6]     = { fore,      back,      col0   }, // \x17
-	[SchemeCol7]     = { fore,      back,      col0   }, // \x18
-	[SchemeCol8]     = { fore,      back,      col0   }, // \x19
-	[SchemeCol9]     = { fore,      back,      col0   }, // \x1a
-	[SchemeCol10]    = { back,      col10,      col0   }, // \x1b
-	[SchemeCol11]    = { back,      col11,      col0   }, // \x1c 
-	[SchemeCol12]    = { fore,      back,   col0   }, // \x1d Spotify
+	[SchemeCol1]     = { col1,      back,      col0   }, // \x12 
+	[SchemeCol2]     = { col2,      back,      col0   }, // \x13
+	[SchemeCol3]     = { col3,      back,      col0   }, // \x14 
+	[SchemeCol4]     = { col4,      back,      col0   }, // \x15
+	[SchemeCol5]     = { col5,      back,      col0   }, // \x16 
+	[SchemeCol6]     = { col6,      back,      col0   }, // \x17
+	[SchemeCol7]     = { col7,      back,      col0   }, // \x18
+	[SchemeCol8]     = { col8,      back,      col0   }, // \x19
+	[SchemeCol9]     = { col9,      back,      col0   }, // \x1a
+	[SchemeCol10]    = { col10,     back,      col0   }, // \x1b
+	[SchemeCol11]    = { col11,     back,      col0   }, // \x1c 
+	[SchemeCol12]    = { spotify,   back,      col0   }, // \x1d Spotify
 };
 
 /* tagging */
@@ -80,6 +80,7 @@ static const Rule rules[] = {
 	{ "Spotify",       NULL,       NULL,       5,            0,           -1 },
 	{ "Toolkit",       NULL,       NULL,       0,            1,           -1 },
 	{ "kruler",        NULL,       NULL,       0,            1,           -1 },
+	{ "Emacs",         NULL,       "agenda",   0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -175,9 +176,9 @@ static Key keys[] = {
 
 		     /* dwm especifico*/
 		     { MODKEY,                       XK_b,      togglebar,      {0} }, /*Activar o desactivar panel*/
-                     { MODKEY|ShiftMask,             XK_h,      setcfact,       {.f = +0.25} },
-                     { MODKEY|ShiftMask,             XK_l,      setcfact,       {.f = -0.25} },
-                     { MODKEY|ShiftMask,             XK_o,      setcfact,       {.f =  0.00} },
+                     { MODKEY|Mod1Mask,              XK_l,      setcfact,       {.f = +0.25} },
+                     { MODKEY|Mod1Mask,              XK_h,      setcfact,       {.f = -0.25} },
+                     { MODKEY|Mod1Mask,              XK_o,      setcfact,       {.f =  0.00} },
 
 };
 
